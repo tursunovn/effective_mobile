@@ -47,3 +47,28 @@ Backend возвращает простой текст: "Hello from Effective Mo
 
 [User] → [Nginx (8080:80)] → [Backend (em-backend:8080)]
 
+или:
+
+       ┌─────────┐
+       │  User   │
+       └────┬────┘
+            │ HTTP Request (port 8080)
+       ┌────▼────┐
+       │  Nginx  │
+       │(8080:80)│
+       └────┬────┘
+            │ Proxy_pass
+       ┌────▼──────────┐
+       │ em-backend    │
+       │(Python server)│
+       └───────────────┘
+
+
+
+
+## Технологии
+- Docker
+- Docker Compose
+- Python 3.12 (http.server)
+- Nginx 1.25-alpine
+
